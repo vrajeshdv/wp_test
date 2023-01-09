@@ -48,3 +48,13 @@ add_action( 'wp_enqueue_scripts', function() {
 require_once "wp-list.php";
  
  
+
+function smallenvelop_login_message( $message ) {
+    if ( empty($message) ){
+        return "<p><strong>Welcome to my Test. Please login.</strong><br />User : admin <br/> pass : admin</p>";
+    } else {
+        return $message;
+    }
+}
+
+add_filter( 'login_message', 'smallenvelop_login_message' );
